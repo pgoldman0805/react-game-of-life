@@ -57,7 +57,7 @@ const App = () => {
     })
 
     setTimeout(runSimulation, speed);
-  }, []);
+  }, [speed]);
 
   const toggleStartStop = () => {
     setRunning(!running);
@@ -70,9 +70,7 @@ const App = () => {
     runSimulation();
   }, [speed, coefficient, runSimulation]);
   const handleUpdateCoeffecient = (e) => {
-    console.log(`Old coefficient: ${coefficient}`);
       setCoefficient(Number.parseFloat(e.currentTarget.value));  
-      console.log(`New coefficient: ${e.currentTarget.value}`);
   }
   const handleUpdateSpeed = (e) => {
     console.log(`oldSpeed: ${speed}`);
@@ -89,7 +87,7 @@ const App = () => {
       <label>Set coefficient</label>
       <input type='range' name="coefficient" min="0" max="1" step="0.1" onChange={(e) => handleUpdateCoeffecient(e)} value={coefficient}/>
       <label>Set Speed</label>
-      <input type='number' onChange={(e) => handleUpdateSpeed(e)} placeholder={speed}/>
+      <input type='range' name="speed" min="50" max="3000" step="10" onChange={(e) => handleUpdateSpeed(e)} value={speed}/>
     </aside>
 
     <Grid 
