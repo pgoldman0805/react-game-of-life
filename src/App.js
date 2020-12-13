@@ -57,7 +57,7 @@ const App = () => {
     })
 
     setTimeout(runSimulation, speed);
-  }, [speed]);
+  }, [speed, setSpeed]);
 
   const toggleStartStop = () => {
     setRunning(!running);
